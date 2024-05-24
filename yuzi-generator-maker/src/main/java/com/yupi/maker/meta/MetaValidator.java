@@ -6,11 +6,16 @@ import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.StrUtil;
 import com.yupi.maker.meta.enums.FileGenerateTypeEnum;
 import com.yupi.maker.meta.enums.FileTypeEnum;
-import com.yupi.maker.meta.enums.ModelTypeEnum;
 
 import java.io.File;
 import java.nio.file.Paths;
 import java.util.List;
+
+/**
+ * @description；
+ * @author:mar1
+ * @data:2024/05/24
+ **/
 
 /**
  * 元信息校验
@@ -42,7 +47,7 @@ public class MetaValidator {
 
             String modelInfoType = modelInfo.getType();
             if (StrUtil.isEmpty(modelInfoType)) {
-                modelInfo.setType(ModelTypeEnum.STRING.getValue());
+                modelInfo.setType("String");
             }
         }
     }
