@@ -4,10 +4,11 @@
   "basePackage": "com.yupi",
   "version": "1.0",
   "author": "yupi",
-  "createTime": "2023-11-22",
+  "createTime": "2024-5-11",
   "fileConfig": {
-    "inputRootPath": "F:/java/code/yuzi-generator/yuzi-generator-demo-projects/acm-template-pro",
+    "inputRootPath": ".source/acm-template-pro",
     "outputRootPath": "generated",
+    "sourceRootPath": "F:/java/code/yuzi-generator/yuzi-generator-demo-projects/acm-template-pro",
     "type": "dir",
     "files": [
       {

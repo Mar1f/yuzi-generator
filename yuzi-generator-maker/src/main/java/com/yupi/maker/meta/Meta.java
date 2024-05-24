@@ -10,9 +10,11 @@ import java.util.List;
  * @author:mar1
  * @data:2024/05/24
  **/
+
 @NoArgsConstructor
 @Data
 public class Meta {
+
     private String name;
     private String description;
     private String basePackage;
@@ -27,6 +29,7 @@ public class Meta {
     public static class FileConfig {
         private String inputRootPath;
         private String outputRootPath;
+        private String sourceRootPath;
         private String type;
         private List<FileInfo> files;
 

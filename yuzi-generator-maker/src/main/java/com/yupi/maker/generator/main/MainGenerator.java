@@ -32,6 +32,11 @@ public class MainGenerator {
             FileUtil.mkdir(outputPath);
         }
 
+        //文件夹复制
+        String sourceRootPath = meta.getFileConfig().getSourceRootPath();
+        String sourceCopyPath = outputPath + File.separator + ".source";
+        FileUtil.copy(sourceRootPath,sourceCopyPath,false);
+
         // 读取 resources 目录
         ClassPathResource classPathResource = new ClassPathResource("");
         String inputResourcePath = classPathResource.getAbsolutePath();
