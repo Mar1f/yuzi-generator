@@ -1,6 +1,7 @@
 # My Custom
 
 generated
+.temp
 .idea
 target
 yuzi-generator.iml
