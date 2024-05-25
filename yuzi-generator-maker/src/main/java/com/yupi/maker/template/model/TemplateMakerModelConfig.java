@@ -44,5 +44,6 @@ public class TemplateMakerModelConfig {
         private String groupKey;
 
         private String groupName;
+
     }
 }

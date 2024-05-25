@@ -5,12 +5,6 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-/**
- * @description；
- * @author:mar1
- * @data:2024/05/24
- **/
-
 @NoArgsConstructor
 @Data
 public class Meta {
@@ -68,7 +62,6 @@ public class Meta {
             // 中间参数
             // 该分组下所有参数拼接字符串
             private String allArgsStr;
-
         }
     }
 }

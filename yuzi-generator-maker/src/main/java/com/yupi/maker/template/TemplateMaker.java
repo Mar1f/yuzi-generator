@@ -9,6 +9,7 @@ import cn.hutool.json.JSONUtil;
 import com.yupi.maker.meta.Meta;
 import com.yupi.maker.meta.enums.FileGenerateTypeEnum;
 import com.yupi.maker.meta.enums.FileTypeEnum;
+import com.yupi.maker.template.model.TemplateMakerConfig;
 import com.yupi.maker.template.model.TemplateMakerFileConfig;
 import com.yupi.maker.template.model.TemplateMakerModelConfig;
 
@@ -23,6 +24,21 @@ import java.util.stream.Collectors;
  * @data:2024/05/24
  **/
 public class TemplateMaker {
+
+    /**
+     * 制作模板
+     * @param templateMakerConfig
+     * @return
+     */
+    public static long makeTemplate(TemplateMakerConfig templateMakerConfig) {
+        Meta meta = templateMakerConfig.getMeta();
+        String originProjectPath = templateMakerConfig.getOriginProjectPath();
+        TemplateMakerFileConfig templateMakerFileConfig = templateMakerConfig.getFileConfig();
+        TemplateMakerModelConfig templateMakerModelConfig = templateMakerConfig.getModelConfig();
+        Long id = templateMakerConfig.getId();
+
+        return makeTemplate(meta, originProjectPath, templateMakerFileConfig, templateMakerModelConfig, id);
+    }
     /**
      * @param newMeta
      * @param originProjectPath

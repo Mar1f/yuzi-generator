@@ -1,6 +1,9 @@
 package com.yupi.maker.template;
 
+import cn.hutool.core.io.resource.ResourceUtil;
+import cn.hutool.json.JSONUtil;
 import com.yupi.maker.meta.Meta;
+import com.yupi.maker.template.model.TemplateMakerConfig;
 import com.yupi.maker.template.model.TemplateMakerFileConfig;
 import com.yupi.maker.template.model.TemplateMakerModelConfig;
 import org.junit.Test;
@@ -76,6 +79,16 @@ public class TemplateMakerTest {
         templateMakerModelConfig.setModels(modelInfoConfigList);
 
         long id = TemplateMaker.makeTemplate(meta, originProjectPath, templateMakerFileConfig, templateMakerModelConfig,  1L);
+        System.out.println(id);
+    }
+    /**
+     * 使用 JSON 制作模板
+     */
+    @Test
+    public void testMakeTemplateWithJSON() {
+        String configStr = ResourceUtil.readUtf8Str("F:/java/code/yuzi-generator/yuzi-generator-maker/src/main/resources/templates/templateMaker.json");
+        TemplateMakerConfig templateMakerConfig = JSONUtil.toBean(configStr, TemplateMakerConfig.class);
+        long id = TemplateMaker.makeTemplate(templateMakerConfig);
         System.out.println(id);
     }
 }
