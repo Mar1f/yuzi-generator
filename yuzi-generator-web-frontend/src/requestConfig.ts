@@ -40,6 +40,11 @@ export const requestConfig: RequestConfig = {
       if (!data) {
         throw new Error('服务异常');
       }
+      // 文件下载时直接返回
+      if(requestPath.includes("download")){
+        return response;
+      }
+
 
       // 错误码处理
       const code: number = data.code;

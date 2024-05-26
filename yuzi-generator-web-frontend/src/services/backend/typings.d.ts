@@ -19,7 +19,7 @@ declare namespace API {
 
   type BaseResponseLong_ = {
     code?: number;
-    data?: string;
+    data?: number;
     message?: string;
   };
 
@@ -66,7 +66,7 @@ declare namespace API {
   };
 
   type DeleteRequest = {
-    id?: string;
+    id?: number;
   };
 
   type FileConfig = {
@@ -95,7 +95,7 @@ declare namespace API {
     description?: string;
     distPath?: string;
     fileConfig?: string;
-    id?: string;
+    id?: number;
     isDelete?: number;
     modelConfig?: string;
     name?: string;
@@ -103,7 +103,7 @@ declare namespace API {
     status?: number;
     tags?: string;
     updateTime?: string;
-    userId?: string;
+    userId?: number;
     version?: string;
   };
 
@@ -127,7 +127,7 @@ declare namespace API {
     description?: string;
     distPath?: string;
     fileConfig?: FileConfig;
-    id?: string;
+    id?: number;
     modelConfig?: ModelConfig;
     name?: string;
     picture?: string;
@@ -141,9 +141,9 @@ declare namespace API {
     current?: number;
     description?: string;
     distPath?: string;
-    id?: string;
+    id?: number;
     name?: string;
-    notId?: string;
+    notId?: number;
     orTags?: string[];
     pageSize?: number;
     searchText?: string;
@@ -151,7 +151,7 @@ declare namespace API {
     sortOrder?: string;
     status?: number;
     tags?: string[];
-    userId?: string;
+    userId?: number;
     version?: string;
   };
 
@@ -161,7 +161,7 @@ declare namespace API {
     description?: string;
     distPath?: string;
     fileConfig?: FileConfig;
-    id?: string;
+    id?: number;
     modelConfig?: ModelConfig;
     name?: string;
     picture?: string;
@@ -177,7 +177,7 @@ declare namespace API {
     description?: string;
     distPath?: string;
     fileConfig?: FileConfig;
-    id?: string;
+    id?: number;
     modelConfig?: ModelConfig;
     name?: string;
     picture?: string;
@@ -185,28 +185,28 @@ declare namespace API {
     tags?: string[];
     updateTime?: string;
     user?: UserVO;
-    userId?: string;
+    userId?: number;
     version?: string;
   };
 
   type getGeneratorVOByIdUsingGETParams = {
     /** id */
-    id?: string;
+    id?: number;
   };
 
   type getUserByIdUsingGETParams = {
     /** id */
-    id?: string;
+    id?: number;
   };
 
   type getUserVOByIdUsingGETParams = {
     /** id */
-    id?: string;
+    id?: number;
   };
 
   type LoginUserVO = {
     createTime?: string;
-    id?: string;
+    id?: number;
     updateTime?: string;
     userAvatar?: string;
     userName?: string;
@@ -238,54 +238,59 @@ declare namespace API {
 
   type PageGenerator_ = {
     countId?: string;
-    current?: string;
-    maxLimit?: string;
+    current?: number;
+    maxLimit?: number;
     optimizeCountSql?: boolean;
     orders?: OrderItem[];
-    pages?: string;
+    pages?: number;
     records?: Generator[];
     searchCount?: boolean;
-    size?: string;
-    total?: string;
+    size?: number;
+    total?: number;
   };
 
   type PageGeneratorVO_ = {
     countId?: string;
-    current?: string;
-    maxLimit?: string;
+    current?: number;
+    maxLimit?: number;
     optimizeCountSql?: boolean;
     orders?: OrderItem[];
-    pages?: string;
+    pages?: number;
     records?: GeneratorVO[];
     searchCount?: boolean;
-    size?: string;
-    total?: string;
+    size?: number;
+    total?: number;
   };
 
   type PageUser_ = {
     countId?: string;
-    current?: string;
-    maxLimit?: string;
+    current?: number;
+    maxLimit?: number;
     optimizeCountSql?: boolean;
     orders?: OrderItem[];
-    pages?: string;
+    pages?: number;
     records?: User[];
     searchCount?: boolean;
-    size?: string;
-    total?: string;
+    size?: number;
+    total?: number;
   };
 
   type PageUserVO_ = {
     countId?: string;
-    current?: string;
-    maxLimit?: string;
+    current?: number;
+    maxLimit?: number;
     optimizeCountSql?: boolean;
     orders?: OrderItem[];
-    pages?: string;
+    pages?: number;
     records?: UserVO[];
     searchCount?: boolean;
-    size?: string;
-    total?: string;
+    size?: number;
+    total?: number;
+  };
+
+  type testDownloadFileUsingGETParams = {
+    /** filepath */
+    filepath?: string;
   };
 
   type uploadFileUsingPOSTParams = {
@@ -294,7 +299,7 @@ declare namespace API {
 
   type User = {
     createTime?: string;
-    id?: string;
+    id?: number;
     isDelete?: number;
     updateTime?: string;
     userAccount?: string;
@@ -319,7 +324,7 @@ declare namespace API {
 
   type UserQueryRequest = {
     current?: number;
-    id?: string;
+    id?: number;
     pageSize?: number;
     sortField?: string;
     sortOrder?: string;
@@ -341,7 +346,7 @@ declare namespace API {
   };
 
   type UserUpdateRequest = {
-    id?: string;
+    id?: number;
     userAvatar?: string;
     userName?: string;
     userProfile?: string;
@@ -350,7 +355,7 @@ declare namespace API {
 
   type UserVO = {
     createTime?: string;
-    id?: string;
+    id?: number;
     userAvatar?: string;
     userName?: string;
     userProfile?: string;
