@@ -348,7 +348,8 @@ public class GeneratorController {
         String projectPath = System.getProperty("user.dir");
         String tempDirPath = String.format("%s/.temp/use/%s", projectPath, id);
         String zipFilePath = tempDirPath + "/dist.zip";
-
+        System.out.println("zipFilePath:"+zipFilePath);
+        System.out.println("distPath："+distPath);
         if (!FileUtil.exist(zipFilePath)) {
             FileUtil.touch(zipFilePath);
         }

@@ -3,12 +3,6 @@ package com.yupi.maker.meta;
 import cn.hutool.core.io.resource.ResourceUtil;
 import cn.hutool.json.JSONUtil;
 
-/**
- * @description；
- * @author:mar1
- * @data:2024/05/24
- **/
-
 public class MetaManager {
 
     private static volatile Meta meta;

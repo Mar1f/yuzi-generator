@@ -15,12 +15,6 @@ import freemarker.template.TemplateException;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * @description；
- * @author:mar1
- * @data:2024/05/24
- **/
-
 public abstract class GenerateTemplate {
 
     public void doGenerate() throws TemplateException, IOException, InterruptedException {
@@ -98,14 +92,14 @@ public abstract class GenerateTemplate {
         outputFilePath = outputBaseJavaPackagePath + "/cli/command/GenerateCommand.java";
         DynamicFileGenerator.doGenerate(inputFilePath , outputFilePath, meta);
 
-        // cli.command.JsonGenerateCommand
-        inputFilePath = inputResourcePath + File.separator + "templates/java/cli/command/JsonGenerateCommand.java.ftl";
-        outputFilePath = outputBaseJavaPackagePath + "/cli/command/JsonGenerateCommand.java";
-        DynamicFileGenerator.doGenerate(inputFilePath , outputFilePath, meta);
-
         // cli.command.ListCommand
         inputFilePath = inputResourcePath + File.separator + "templates/java/cli/command/ListCommand.java.ftl";
         outputFilePath = outputBaseJavaPackagePath + "/cli/command/ListCommand.java";
+        DynamicFileGenerator.doGenerate(inputFilePath , outputFilePath, meta);
+
+        // cli.JsonGenerateCommand
+        inputFilePath = inputResourcePath + File.separator + "templates/java/cli/command/JsonGenerateCommand.java.ftl";
+        outputFilePath = outputBaseJavaPackagePath + "/cli/JsonGenerateCommand.java";
         DynamicFileGenerator.doGenerate(inputFilePath , outputFilePath, meta);
 
         // cli.CommandExecutor
@@ -136,11 +130,6 @@ public abstract class GenerateTemplate {
         // pom.xml
         inputFilePath = inputResourcePath + File.separator + "templates/pom.xml.ftl";
         outputFilePath = outputPath + File.separator + "pom.xml";
-        DynamicFileGenerator.doGenerate(inputFilePath , outputFilePath, meta);
-
-        //README.md
-        inputFilePath = inputResourcePath + File.separator + "templates/README.md.ftl";
-        outputFilePath = outputPath + File.separator + "README.md";
         DynamicFileGenerator.doGenerate(inputFilePath , outputFilePath, meta);
     }
 
@@ -174,10 +163,12 @@ public abstract class GenerateTemplate {
 
     /**
      * 生成精简版程序
+     *
      * @param outputPath
      * @param sourceCopyDestPath
      * @param jarPath
      * @param shellOutputFilePath
+     * @return 产物包路径
      */
     protected String buildDist(String outputPath, String sourceCopyDestPath, String jarPath, String shellOutputFilePath) {
         String distOutputPath = outputPath + "-dist";
@@ -196,13 +187,13 @@ public abstract class GenerateTemplate {
 
     /**
      * 制作压缩包
+     *
      * @param outputPath
-     * @return 压缩包的路径
+     * @return 压缩包路径
      */
-    protected  String buildZip(String outputPath){
-        String zipPath = outputPath +".zip";
-        ZipUtil.zip(outputPath,zipPath);
+    protected String buildZip(String outputPath) {
+        String zipPath = outputPath + ".zip";
+        ZipUtil.zip(outputPath, zipPath);
         return zipPath;
     }
-
 }

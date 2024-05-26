@@ -12,9 +12,11 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 
-
 public class TemplateMakerTest {
 
+    /**
+     * 测试同配置多次生成时，强制变为静态生成
+     */
     @Test
     public void testMakeTemplateBug1() {
         Meta meta = new Meta();
@@ -41,7 +43,7 @@ public class TemplateMakerTest {
         List<TemplateMakerModelConfig.ModelInfoConfig> modelInfoConfigList = Arrays.asList(modelInfoConfig1);
         templateMakerModelConfig.setModels(modelInfoConfigList);
 
-        long id = TemplateMaker.makeTemplate(meta, originProjectPath, templateMakerFileConfig, templateMakerModelConfig, null,1L);
+        long id = TemplateMaker.makeTemplate(meta, originProjectPath, templateMakerFileConfig, templateMakerModelConfig, null, 1735281524670181376L);
         System.out.println(id);
     }
 
@@ -58,7 +60,7 @@ public class TemplateMakerTest {
         String originProjectPath = new File(projectPath).getParent() + File.separator + "yuzi-generator-demo-projects/springboot-init";
 
         // 文件参数配置，扫描目录
-        String inputFilePath1 = "./";
+        String inputFilePath1 = "src/main/java/com/yupi/springbootinit/common";
         TemplateMakerFileConfig templateMakerFileConfig = new TemplateMakerFileConfig();
         TemplateMakerFileConfig.FileInfoConfig fileInfoConfig1 = new TemplateMakerFileConfig.FileInfoConfig();
         fileInfoConfig1.setPath(inputFilePath1);
@@ -68,29 +70,34 @@ public class TemplateMakerTest {
         TemplateMakerModelConfig templateMakerModelConfig = new TemplateMakerModelConfig();
         TemplateMakerModelConfig.ModelInfoConfig modelInfoConfig1 = new TemplateMakerModelConfig.ModelInfoConfig();
         // - 第 1 次
-        modelInfoConfig1.setFieldName("className");
-        modelInfoConfig1.setType("String");
-        modelInfoConfig1.setReplaceText("BaseResponse");
-        // - 第 2 次
-//        modelInfoConfig1.setFieldName("packageName");
+//        modelInfoConfig1.setFieldName("className");
 //        modelInfoConfig1.setType("String");
-//        modelInfoConfig1.setReplaceText("com.yupi");
+//        modelInfoConfig1.setReplaceText("BaseResponse");
+        // - 第 2 次
+        modelInfoConfig1.setFieldName("packageName");
+        modelInfoConfig1.setType("String");
+        modelInfoConfig1.setReplaceText("com.yupi");
         List<TemplateMakerModelConfig.ModelInfoConfig> modelInfoConfigList = Arrays.asList(modelInfoConfig1);
         templateMakerModelConfig.setModels(modelInfoConfigList);
 
-        long id = TemplateMaker.makeTemplate(meta, originProjectPath, templateMakerFileConfig, templateMakerModelConfig, null, 1L);
+        long id = TemplateMaker.makeTemplate(meta, originProjectPath, templateMakerFileConfig, templateMakerModelConfig, null, 1735281524670181376L);
         System.out.println(id);
     }
+
     /**
      * 使用 JSON 制作模板
      */
     @Test
     public void testMakeTemplateWithJSON() {
-        String configStr = ResourceUtil.readUtf8Str("F:/java/code/yuzi-generator/yuzi-generator-maker/src/main/resources/templateMaker.json");
+        String configStr = ResourceUtil.readUtf8Str("examples/springboot-init/templateMaker.json");
         TemplateMakerConfig templateMakerConfig = JSONUtil.toBean(configStr, TemplateMakerConfig.class);
         long id = TemplateMaker.makeTemplate(templateMakerConfig);
         System.out.println(id);
     }
+
+    /**
+     * 制作 SpringBoot 模板
+     */
     @Test
     public void makeSpringBootTemplate() {
         String rootPath = "examples/springboot-init/";

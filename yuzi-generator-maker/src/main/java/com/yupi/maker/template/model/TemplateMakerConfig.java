@@ -4,10 +4,8 @@ import com.yupi.maker.meta.Meta;
 import lombok.Data;
 
 /**
- * @description；模板制作配置
- * @author:mar1
- * @data:2024/05/24
- **/
+ * 模板制作配置
+ */
 @Data
 public class TemplateMakerConfig {
 

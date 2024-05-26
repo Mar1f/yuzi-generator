@@ -6,13 +6,6 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * @description；
- * @author:mar1
- * @data:2024/05/24
- **/
-
-
-/**
  * 核心生成器
  */
 public class FileGenerator {
@@ -38,12 +31,4 @@ public class FileGenerator {
         String outputDynamicFilePath = outputPath + File.separator + "acm-template/src/com/yupi/acm/MainTemplate.java";
         DynamicFileGenerator.doGenerate(inputDynamicFilePath, outputDynamicFilePath, model);
     }
-
-//    public static void main(String[] args) throws TemplateException, IOException {
-//        DataModel dataModel = new DataModel();
-//        dataModel.setAuthor("yupi");
-//        dataModel.setLoop(false);
-//        dataModel.setOutputText("求和结果：");
-//        doGenerate(dataModel);
-//    }
 }

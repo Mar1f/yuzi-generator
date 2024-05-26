@@ -3,12 +3,6 @@ package com.yupi.maker.generator.file;
 import cn.hutool.core.io.FileUtil;
 
 /**
- * @description；
- * @author:mar1
- * @data:2024/05/24
- **/
-
-/**
  * 静态文件生成
  */
 public class StaticFileGenerator {

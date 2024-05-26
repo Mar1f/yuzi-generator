@@ -5,12 +5,6 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-/**
- * @description；
- * @author:mar1
- * @data:2024/05/24
- **/
-
 @Data
 public class TemplateMakerModelConfig {
 
@@ -48,6 +42,5 @@ public class TemplateMakerModelConfig {
         private String type;
 
         private String description;
-
     }
 }

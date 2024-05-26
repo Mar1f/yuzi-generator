@@ -4,10 +4,8 @@ import cn.hutool.core.util.ObjectUtil;
 import lombok.Getter;
 
 /**
- * @description；文件过滤规则枚举
- * @author:mar1
- * @data:2024/05/24
- **/
+ * 文件过滤规则枚举
+ */
 @Getter
 public enum FileFilterRuleEnum {
 

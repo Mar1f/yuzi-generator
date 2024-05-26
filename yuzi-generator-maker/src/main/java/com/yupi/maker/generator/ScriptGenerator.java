@@ -11,12 +11,6 @@ import java.nio.file.attribute.PosixFilePermission;
 import java.nio.file.attribute.PosixFilePermissions;
 import java.util.Set;
 
-/**
- * @description；
- * @author:mar1
- * @data:2024/05/24
- **/
-
 public class ScriptGenerator {
 
     public static void doGenerate(String outputPath, String jarPath) throws IOException {

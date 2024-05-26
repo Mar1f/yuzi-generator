@@ -4,10 +4,8 @@ import lombok.Builder;
 import lombok.Data;
 
 /**
- * @description；文件过滤配置
- * @author:mar1
- * @data:2024/05/24
- **/
+ * 文件过滤配置
+ */
 @Data
 @Builder
 public class FileFilterConfig {

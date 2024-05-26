@@ -1,4 +1,3 @@
-
 package com.yupi.maker.generator.file;
 
 import cn.hutool.core.io.FileUtil;
@@ -10,12 +9,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
-
-/**
- * @description；
- * @author:mar1
- * @data:2024/05/24
- **/
 
 /**
  * 动态文件生成

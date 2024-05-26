@@ -1,11 +1,6 @@
 package com.yupi.maker.meta.enums;
 
 /**
- * @description；
- * @author:mar1
- * @data:2024/05/24
- **/
-/**
  * 文件生成类型枚举
  */
 public enum FileGenerateTypeEnum {

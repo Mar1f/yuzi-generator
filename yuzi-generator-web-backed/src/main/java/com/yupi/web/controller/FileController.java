@@ -50,8 +50,10 @@ public class FileController {
      * @param multipartFile
      * @return
      */
-    @PostMapping("/test//upload")
+    @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
+    @PostMapping("/test/upload")
     public BaseResponse<String> testUploadFile(@RequestPart("file") MultipartFile multipartFile) {
+        // 文件目录
         String filename = multipartFile.getOriginalFilename();
         String filepath = String.format("/test/%s", filename);
         File file = null;
@@ -117,7 +119,6 @@ public class FileController {
      * @return
      */
     @PostMapping("/upload")
-    @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
     public BaseResponse<String> uploadFile(@RequestPart("file") MultipartFile multipartFile,
                                            UploadFileRequest uploadFileRequest, HttpServletRequest request) {
         String biz = uploadFileRequest.getBiz();

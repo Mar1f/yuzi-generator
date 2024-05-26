@@ -1,10 +1,5 @@
 package com.yupi.maker.meta.enums;
 
-/**
- * @description；
- * @author:mar1
- * @data:2024/05/24
- **/
 public enum FileTypeEnum {
 
     DIR("目录", "dir"),

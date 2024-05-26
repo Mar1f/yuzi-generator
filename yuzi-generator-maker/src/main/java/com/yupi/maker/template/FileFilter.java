@@ -11,10 +11,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @description；
- * @author:mar1
- * @data:2024/05/24
- **/
+ * 文件过滤器
+ */
 public class FileFilter {
 
     /**
@@ -32,10 +30,18 @@ public class FileFilter {
                 .collect(Collectors.toList());
     }
 
-    public static boolean doSingleFileFilter(List<FileFilterConfig>fileFilterConfigList, File file){
+    /**
+     * 单个文件过滤
+     *
+     * @param fileFilterConfigList 过滤规则
+     * @param file 单个文件
+     * @return 是否保留
+     */
+    public static boolean doSingleFileFilter(List<FileFilterConfig> fileFilterConfigList, File file) {
         String fileName = file.getName();
         String fileContent = FileUtil.readUtf8String(file);
-// 所有过滤器校验结束的结果
+
+        // 所有过滤器校验结束的结果
         boolean result = true;
 
         if (CollUtil.isEmpty(fileFilterConfigList)) {
@@ -92,6 +98,7 @@ public class FileFilter {
                 return false;
             }
         }
+
         // 都满足
         return true;
     }

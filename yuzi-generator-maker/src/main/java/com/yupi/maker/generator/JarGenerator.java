@@ -3,12 +3,6 @@ package com.yupi.maker.generator;
 import java.io.*;
 import java.util.Map;
 
-/**
- * @description；
- * @author:mar1
- * @data:2024/05/24
- **/
-
 public class JarGenerator {
 
     public static void doGenerate(String projectDir) throws IOException, InterruptedException {
