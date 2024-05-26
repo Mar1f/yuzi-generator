@@ -1,7 +1,4 @@
 # 数据库初始化
-# @author <a href="https://github.com/liyupi">程序员鱼皮</a>
-# @from <a href="https://yupi.icu">编程导航知识星球</a>
-
 -- 创建库
 create database if not exists my_db;
 
@@ -22,7 +19,7 @@ create table if not exists user
     updateTime   datetime     default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '更新时间',
     isDelete     tinyint      default 0                 not null comment '是否删除',
     index idx_userAccount (userAccount)
-) comment '用户' collate = utf8mb4_unicode_ci;
+    ) comment '用户' collate = utf8mb4_unicode_ci;
 
 
 -- 代码生成器表
@@ -45,7 +42,7 @@ create table if not exists generator
     updateTime  datetime default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '更新时间',
     isDelete    tinyint  default 0                 not null comment '是否删除',
     index idx_userId (userId)
-) comment '代码生成器' collate = utf8mb4_unicode_ci;
+    ) comment '代码生成器' collate = utf8mb4_unicode_ci;
 
 -- 模拟用户数据
 INSERT INTO my_db.user (id, userAccount, userPassword, userName, userAvatar, userProfile, userRole) VALUES (1, 'yupi', 'b0dd3697a192885d7c055db46155b26a', '程序员鱼皮', 'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png', '我有一头小毛驴我从来也不骑', 'admin');
