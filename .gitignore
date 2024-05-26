@@ -3,6 +3,7 @@
 generated
 .temp
 .idea
+application-local.yml
 target
 yuzi-generator.iml
 
