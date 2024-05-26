@@ -4,6 +4,7 @@ import { PageContainer, ProFormSelect, ProFormText, QueryFilter } from '@ant-des
 import { Avatar, Card, Flex, Image, Input, List, message, Tabs, Tag, Typography } from 'antd';
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
+import PictureUploader from "@/components/PictureUploader";
 
 /**
  * 默认分页参数
