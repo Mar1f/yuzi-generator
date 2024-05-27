@@ -6,6 +6,7 @@ import cn.hutool.core.util.RandomUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.core.util.ZipUtil;
 import cn.hutool.json.JSONUtil;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.qcloud.cos.model.COSObject;
 import com.qcloud.cos.model.COSObjectInputStream;
@@ -207,9 +208,54 @@ public class GeneratorController {
         long size = generatorQueryRequest.getPageSize();
         // 限制爬虫
         ThrowUtils.throwIf(size > 20, ErrorCode.PARAMS_ERROR);
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.start();
         Page<Generator> generatorPage = generatorService.page(new Page<>(current, size),
                 generatorService.getQueryWrapper(generatorQueryRequest));
-        return ResultUtils.success(generatorService.getGeneratorVOPage(generatorPage, request));
+        stopWatch.stop();
+        System.out.println("查询管理器："+ stopWatch.getTotalTimeMillis());
+
+        stopWatch = new StopWatch();
+        stopWatch.start();
+        Page<GeneratorVO> generatorVOPage = generatorService.getGeneratorVOPage(generatorPage, request);
+        stopWatch.stop();
+        System.out.println("查询关联数据："+ stopWatch.getTotalTimeMillis());
+        return   ResultUtils.success(generatorVOPage);
+    }
+
+    /**
+     * 快速分页获取列表（封装类）
+     *
+     * @param generatorQueryRequest
+     * @param request
+     * @return
+     */
+    @PostMapping("/list/page/vo/fast")
+    public BaseResponse<Page<GeneratorVO>> listGeneratorVOByPageFast(@RequestBody GeneratorQueryRequest generatorQueryRequest,
+                                                                 HttpServletRequest request) {
+        long current = generatorQueryRequest.getCurrent();
+        long size = generatorQueryRequest.getPageSize();
+        // 限制爬虫
+        ThrowUtils.throwIf(size > 20, ErrorCode.PARAMS_ERROR);
+        QueryWrapper<Generator> queryWrapper = generatorService.getQueryWrapper(generatorQueryRequest);
+        queryWrapper.select("id",
+                "name",
+                "description",
+                "tags",
+                "picture",
+                "status",
+                "userId",
+                "createTime",
+                "updateTime"
+                );
+        Page<Generator> generatorPage = generatorService.page(new Page<>(current, size),queryWrapper);
+
+        Page<GeneratorVO> generatorVOPage = generatorService.getGeneratorVOPage(generatorPage, request);
+        generatorVOPage.getRecords().stream().forEach(generatorVO -> {
+            generatorVO.setFileConfig(null);
+            generatorVO.setModelConfig(null);
+        });
+        return   ResultUtils.success(generatorVOPage);
     }
 
     /**

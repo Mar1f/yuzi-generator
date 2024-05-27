@@ -48,7 +48,7 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
       },
     },
     waterMarkProps: {
-      content: '阿祥哥qqe',
+      content: initialState?.currentUser?.userName,
     },
     footerRender: () => <Footer />,
     menuHeaderRender: undefined,
