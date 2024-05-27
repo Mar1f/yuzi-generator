@@ -21,8 +21,8 @@ const FileUploader: React.FC<Props> = (props) => {
 
   const uploadProps: UploadProps = {
     name: 'file',
-    multiple: false,
     listType: 'text',
+    multiple: false,
     maxCount: 1,
     fileList: value,
     disabled: loading,

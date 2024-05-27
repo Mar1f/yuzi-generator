@@ -9,6 +9,6 @@ export const BACKEND_HOST_LOCAL = "http://localhost:8120";
 export const BACKEND_HOST_PROD = "https://yupi.icu";
 
 /**
- * COS访问地址
+ * COS 访问地址
  */
-export const COS_HOST = "https://marone-1326817243.cos.ap-beijing.myqcloud.com";
+export const COS_HOST = "https://yuzi-1256524210.cos.ap-shanghai.myqcloud.com";

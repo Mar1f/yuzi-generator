@@ -46,9 +46,6 @@ const PictureUploader: React.FC<Props> = (props) => {
     },
   };
 
-  /**
-   * 上传按钮
-   */
   const uploadButton = (
     <div>
       {loading ? <LoadingOutlined /> : <PlusOutlined />}
