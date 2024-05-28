@@ -4,7 +4,7 @@ import '@umijs/max';
 import React from 'react';
 
 const Footer: React.FC = () => {
-  const defaultMessage = '程序员鱼皮';
+  const defaultMessage = '阿祥哥qqe';
   const currentYear = new Date().getFullYear();
   return (
     <DefaultFooter
@@ -14,25 +14,19 @@ const Footer: React.FC = () => {
       copyright={`${currentYear} ${defaultMessage}`}
       links={[
         {
-          key: 'codeNav',
-          title: '编程导航',
-          href: 'https://yupi.icu',
-          blankTarget: true,
-        },
-        {
           key: 'Ant Design',
-          title: '编程宝典',
-          href: 'https://codefather.cn',
+          title: '吉师纯情阿祥哥',
+          href: 'https://www.douyin.com/user/MS4wLjABAAAAW3O6b3hutefE8MvtIJ0DoQgcXnzvPnK8e72dDLeVe9w',
           blankTarget: true,
         },
         {
           key: 'github',
           title: (
             <>
-              <GithubOutlined /> 鱼皮源码
+              <GithubOutlined /> Mar1f
             </>
           ),
-          href: 'https://github.com/liyupi',
+          href: 'https://github.com/Mar1f',
           blankTarget: true,
         },
       ]}
